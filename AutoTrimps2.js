@@ -69,6 +69,7 @@ function delayStart() {
     setTimeout(delayStartAgain, startupDelay);
 }
 function delayStartAgain(){
+    updateCombatSpeed();
     setInterval(mainLoop, runInterval);
     updateCustomButtons();
     document.getElementById('Prestige').value = autoTrimpSettings.PrestigeBackup.selected;

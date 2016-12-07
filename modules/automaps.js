@@ -137,12 +137,8 @@ function autoMap() {
         }
     }
     //Enough Health and Damage calculations:
-    var pierceMod = (game.global.brokenPlanet && !game.global.mapsActive) ? getPierceAmt() : 0;
-    const FORMATION_MOD_1 = game.upgrades.Dominance.done ? 2 : 1;
-    const FORMATION_MOD_2 = game.upgrades.Dominance.done ? 4 : 1;    
-    //asks if we can survive x number of hits in either D stance or X stance.
-    enoughHealth = (baseHealth/FORMATION_MOD_1 > customVars.numHitsSurvived * (enemyDamage - baseBlock/FORMATION_MOD_1 > 0 ? enemyDamage - baseBlock/FORMATION_MOD_1 : enemyDamage * pierceMod));
-    enoughDamage = (baseDamage * FORMATION_MOD_2 > enemyHealth);
+    enoughHealth = getEnoughHealth(enemyDamage);
+    enoughDamage = getEnoughDamage(enemyHealth);
 
     //remove this in the meantime until it works for everyone.
 /*     if (!wantToScry) {

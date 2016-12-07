@@ -165,6 +165,13 @@ function postBuy() {
     game.global.maxSplit = preBuymaxSplit;
 }
 
+//Called on load and after each portal, combatSpeed should probably not change otherwise
+function updateCombatSpeed() {
+	combatSpeed = (game.portal.Agility.level) ? 1000 * Math.pow(1 - game.portal.Agility.modifier, game.portal.Agility.level) : 1000;
+	if (game.talents.hyperspeed.purchased) combatSpeed -= 100;
+	if (game.talents.hyperspeed2.purchased && (game.global.world <= Math.floor((game.global.highestLevelCleared + 1) * 0.5)))
+		combatSpeed -= 100;
+}
 
 function setTitle() {
     if (aWholeNewWorld) {

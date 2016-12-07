@@ -148,6 +148,21 @@ function getCurrentEnemy(current) {
     return enemy;
 }
 
+//Determines if there is enough health to survive a number of hits in D or X stance, or to finish breeding before dying
+function getEnoughHealth(enemyDamage) {
+    var pierceMod = (game.global.brokenPlanet && !game.global.mapsActive) ? getPierceAmt() : 0;
+    var formationMod1 = game.upgrades.Dominance.done ? 2 : 1;  //Divides baseHealth, baseBlock
+    var actualHealth = baseHealth/FORMATION_MOD_1;
+    var potentialDamage = enemyDamage - baseBlock/formationMod1 > 0 ? enemyDamage - baseBlock/formationMod1 : enemyDamage * pierceMod;
+    return (actualHealth > getPageSetting('SurviveHits') * potentialDamage) || (actualHealth > potentialDamage && actualHealth - (potentialDamage * getBreedTime() / combatSpeed) > 0);
+}
+
+//Determines if damage is high enough for one shot kills
+function getEnoughDamage(enemyHealth) {
+  var formationMod1 = game.upgrades.Dominance.done ? 4 : 1;  //Multiplies baseDamage 
+  return (baseDamage * formationMod1 > enemyHealth);
+}
+
 function getCorruptedCellsNum() {
     var enemy;
     var corrupteds = 0;

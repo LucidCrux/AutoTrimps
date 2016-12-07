@@ -87,4 +87,5 @@ function doPortal(challenge) {
     activateClicked();
     activatePortal();
     lastHeliumZone = 0; zonePostpone = 0;
+    updateCombatSpeed();
 }
