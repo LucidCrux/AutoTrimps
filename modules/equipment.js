@@ -251,8 +251,8 @@ function autoLevelEquipment() {
     }
     var pierceMod = (game.global.brokenPlanet && !game.global.mapsActive) ? getPierceAmt() : 0;
     //change name to make sure these are local to the function
-    var enoughHealthE = getEnoughHealth(enemyDamage);
-    var enoughDamageE = getEnoughDamage(enemyHealth) && !(doVoids && voidCheckPercent > 0);
+    var enoughHealthE = getEnoughHealth(enemyDamage) && !(doVoids && voidCheckPercent > 0);
+    var enoughDamageE = getEnoughDamage(enemyHealth);
 
     for (var equipName in equipmentList) {
         var equip = equipmentList[equipName];
