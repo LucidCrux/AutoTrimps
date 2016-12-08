@@ -188,7 +188,6 @@ function initializeAllSettings() {
     createSetting('MaxTribute', 'Max Tributes', 'Advanced. recommend: -1 ', 'value', '-1',null,"Settings");
     createSetting('MaxNursery', 'Max Nurseries', 'Advanced. recommend: -1', 'value', '-1',null,"Settings");
     //Settings advanced settings
-    createSetting('SurviveHits', 'Survive Hit Count', 'Number of hits to survive when determining if there is enough health or not.', 'value', '8',null,"Settings");
     createSetting('LimitEquipment', 'Limit Equipment', 'Limit levels of equipment bought to:(level 11 - the prestige level). At or Above Prestige X (10), your equipment will remain at level 1. In other words, do not level equipment after ~level ~51, and only buy Prestiges. CAUTION: may reduce He/hr performance in many cases.', 'boolean', null, null, 'Settings');
     createSetting('BreedFire', 'Breed Fire', 'OPTIONAL. Fire Lumberjacks and Miners to speed up breeding when needed. Basically trades wood/metal to cut the wait between deaths down. Disclaimer: May heavily negatively impact wood-gathering. ', 'boolean', null, null, 'Settings');
     createSetting('AutoMagmamancers', 'Auto Magmamancers', 'OPTIONAL. Auto Magmamancer Management. Hires Magmamancers when the Current Zone time goes over 10 minutes. Does a one-time spend of at most 10% of your resources. Every increment of 10 minutes after that repeats the 10% hiring process. Disclaimer: May negatively impact Gem count.', 'boolean', null, null, 'Settings');
